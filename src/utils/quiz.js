@@ -16,26 +16,3 @@ export function getWeakDomains(history, questions) {
     domain, attempted: s.attempted, percentage: Math.round(s.correct / s.attempted * 100)
   })).sort((a, b) => a.percentage - b.percentage)
 }
-
-export function shuffleQuestions(questionList) {
-  const shuffled = [...questionList]
-  for (let i = shuffled.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-export function selectPracticeQuestions(questionList, recentlyUsedIds = [], sessionSize = 7) {
-  if (!questionList.length) return []
-
-  const count = Math.min(sessionSize, questionList.length)
-  const recentSet = new Set(recentlyUsedIds)
-  const unused = questionList.filter(question => !recentSet.has(question.id))
-  const previouslyUsed = shuffleQuestions(questionList.filter(question => recentSet.has(question.id)))
-  const candidates = [...shuffleQuestions(unused), ...previouslyUsed]
-
-  // The first part of a new session uses questions not seen in recent sessions.
-  // If fewer than seven remain, fill the rest from older questions without duplicates.
-  return candidates.slice(0, count)
-}
