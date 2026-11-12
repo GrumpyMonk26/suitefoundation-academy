@@ -4,6 +4,8 @@ import { questions as userInterface } from './questions/netSuite-user-interface.
 import { questions as processFlows } from './questions/standard-process-flows.js'
 import { questions as analytics } from './questions/suiteanalytics.js'
 import { questions as maintenanceSecurity } from './questions/maintenance-security.js'
+import { questions as financialAssociate } from './questions/financial-associate.js'
+import { questions as suiteFoundationExam } from './questions/suitefoundation-exam.js'
 
 export const questions = [
   ...starterQuestions,
@@ -12,6 +14,8 @@ export const questions = [
   ...processFlows,
   ...analytics,
   ...maintenanceSecurity,
+  ...financialAssociate,
+  ...suiteFoundationExam,
 ]
 
 export const questionCount = questions.length
