@@ -6,6 +6,7 @@ import { questions as analytics } from './questions/suiteanalytics.js'
 import { questions as maintenanceSecurity } from './questions/maintenance-security.js'
 import { questions as financialAssociate } from './questions/financial-associate.js'
 import { questions as suiteFoundationExam } from './questions/suitefoundation-exam.js'
+import { questions as suiteFoundationSamplePaper } from './questions/suitefoundation-sample-paper.js'
 
 export const questions = [
   ...starterQuestions,
@@ -16,6 +17,7 @@ export const questions = [
   ...maintenanceSecurity,
   ...financialAssociate,
   ...suiteFoundationExam,
+  ...suiteFoundationSamplePaper,
 ]
 
 export const questionCount = questions.length
